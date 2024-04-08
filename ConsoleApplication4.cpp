@@ -43,13 +43,13 @@ int Money = 0;
 string Name;    
 
 
-string NameNPC_Random[]{ "Алекс", };
+string NameNPC_Random[]{ "Алекс", ""};
 
 
 enum class Food { Steak = 1, Bread, Chicken, Potato, Fries, Ice_Cream };
 enum class Statistic { Saturation, Rest, Sleep, Money };
 enum class Player_Action { Choice_1 = 1, Choice_2, Choice_3, Choice_4 };
-enum class Rest_Action { };
+enum class Rest_Action { Lying_on_the_couch = 1, Go_to_the_park, Walk_along_the_embankment,Walking_with_friends, Watching_movies, Watch_TikTok }; 
 
 void Setup() {
 	Saturation = 100;
@@ -63,8 +63,9 @@ void Setup() {
 void Event_Random(){}
 
 
-void Screen_Choice(string Choice_1, string Choice_2, string Choice_3, string Choice_4, string Name_NPC){
-	
+void Screen_Choice(string Choice_1, string Choice_2, string Choice_3, string Choice_4, string Name_NPC, char NPC_Sprite[]) {
+	int rows = sizeof NPC_Sprite / sizeof NPC_Sprite[0];
+	int cols = sizeof  NPC_Sprite[0] / sizeof(int);
 }
 void Screen_Dialog(string Name_NPC, string dialog){
 	
@@ -122,12 +123,12 @@ void Eat_Event(int Food_Type) {
 }
 
 void Rest_Evemt(int Rest_Type) {
-    if (Rest_Type == (int)Rest_Action::Sleep) Rest += 30;
-	if (Rest_Type == (int)Rest_Action::Go to the park) Rest += 30;
-	if (Rest_Type == (int)Rest_Action::wa) Rest += 30;
-	if (Rest_Type == (int)Rest_Action::) Rests += 30;
-	if (Rest_Type == (int)Rest_Action::) Rest += 30;
-	if (Rest_Type == (int)Rest_Action::) Rest += 30;
+    if (Rest_Type == (int)Rest_Action::Lying_on_the_couch) Rest += 10;
+	if (Rest_Type == (int)Rest_Action::Go_to_the_park) Rest += 20;
+	if (Rest_Type == (int)Rest_Action::Walk_along_the_embankment) Rest += 35;
+	if (Rest_Type == (int)Rest_Action::Walking_with_friends) Rest  +=630;
+	if (Rest_Type == (int)Rest_Action::Watching_movies) Rest += 50;
+	if (Rest_Type == (int)Rest_Action::Watch_TikTok) Rest += 40;
 	if (Rest > 100) Rest = 100;	
 	
 }
