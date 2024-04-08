@@ -1,12 +1,14 @@
 ﻿#include <iostream>
 #include <String>
+#define screen_width 120
+#define screen_height 30
 using namespace std;
 int Hunger = 0;
 int Rest = 0;
 int Sleep = 0;
 int Money = 0;
 string Name;
-string NameNPC[]{ "Алекс", "Командир Кирилл Витальевич"};
+string NameNPC[]{ "Алекс", };
 enum class Statistic { Hunger, Rest, Sleep, Money };
 enum class Player_Action { Choice_1 = 1, Choice_2, Choice_3, Choice_4 };
 void Setup() {
@@ -17,9 +19,13 @@ void Setup() {
 	getline(cin, Name);
 }
 
+void Event_Random(){}
+
+
 void Screen_Choice(string Choice_1, string Choice_2, string Choice_3, string Choice_4){}
 void Screen_Dialog(string Name_NPC, string dialog){}
 void Screen_Cutscene(string Name_NPC, char Cutscene[]) {}
+
 
 void Sleep_Event_Global(int Rest_Factor) {
 	Sleep = 100;
@@ -59,10 +65,16 @@ void Sleep_Event_Radnom(int Rest_Factor) {
 		Rest = 100;
 	}
 }
+
+void Eat_Event(int Food_Type) {}
+
+void Rest_Evemt(int Rest_Type) {}
+
 int main() {
 	srand(time(NULL));
 	setlocale(LC_ALL, "Russian");
 	Setup();
+	
 
 	return 0;
 }
