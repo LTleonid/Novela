@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <String>
 #include <windows.h>  
@@ -36,7 +38,6 @@ void SetColor(int text, int background)
 #define screen_height 30
 using namespace std;
 
-
 int Saturation = 0;
 int Rest = 0;
 int Sleep_ = 0;
@@ -63,20 +64,25 @@ void Setup() {
 
 void Event_Random() {}
 
-void Get_Day() {}
-void Set_Day() {}
 
-
-
-void Screen_Choice(string Choice_1, string Choice_2, string Choice_3, string Choice_4, string Name_NPC, char NPC_Sprite[]) {
-	
+void Screen_Choice(string choices[], string Name_NPC = none, string Question) {
+	int counter = 0;
+	cout << Name_NPC << ": " << Question;
+	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*";
+	cout << endl;
+	cout << "Ваш Выбор: \n"
+		for (string item : choices) {
+			couneter++;
+			cout << counter << ": " << item;
+		}
+	}
+	cout << endl;
+	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*";
 }
 
-void Screen_Dialog(string Name_NPC, string dialog, char NPC_Sprite[][]) {
+void Screen_Dialog(string Name_NPC, string dialog, ) {
 
 } 
-
-void Screen_Cutscene(string Name_NPC, char Cutscene[]) {}
 
 
 void Sleep_Event_Global(int Rest_Factor) {
@@ -119,22 +125,56 @@ void Sleep_Event_Radnom(int Rest_Factor) {
 }
 
 void Eat_Event(int Food_Type) {
-	if (Food_Type == (int)Food::Bread) Saturation += 20;
-	if (Food_Type == (int)Food::Steak) Saturation += 50;
-	if (Food_Type == (int)Food::Chicken) Saturation += 60;
-	if (Food_Type == (int)Food::Fries) Saturation += 35;
-	if (Food_Type == (int)Food::Ice_Cream) Saturation += 15;
-	if (Food_Type == (int)Food::Potato) Saturation += 16;
+	switch (Food_Type)
+	{
+		(int)Food::Bread:
+			Saturation += 20;
+			break;
+		(int)Food::Steak:
+			Saturation += 50;
+			break;
+		(int)Food::Chicken:
+			Saturation += 60;
+			break;
+		(int)Food::Fries:
+			Saturation += 35;
+			break;
+		(int)Food::Ice_Cream:
+			Saturation += 15;
+			break;
+		(int)Food::Potato:
+			Saturation += 16;
+			break;
+	default:
+		cout << "Ошибка в еде!" << Food_Type;
+	}
 	if (Saturation > 100) Saturation = 100;
 }
 
 void Rest_Event(int Rest_Type) {
-	if (Rest_Type == (int)Rest_Action::Lying_on_the_couch) Rest += 10;
-	if (Rest_Type == (int)Rest_Action::Go_to_the_park) Rest += 20;
-	if (Rest_Type == (int)Rest_Action::Walk_along_the_embankment) Rest += 35;
-	if (Rest_Type == (int)Rest_Action::Walking_with_friends) Rest += 630;
-	if (Rest_Type == (int)Rest_Action::Watching_movies) Rest += 50;
-	if (Rest_Type == (int)Rest_Action::Watch_TikTok) Rest += 40;
+	switch (Rest_Type)
+	{
+		(int)Rest_Action::Lying_on_the_couch:
+			Rest += 10;
+			break;
+		(int)Rest_Action::Go_to_the_park:
+			Rest += 20;
+			break;
+		(int)Rest_Action::Walk_along_the_embankment:
+			Rest += 35;
+			break;
+		(int)Rest_Action::Walking_with_friends:
+			Rest += 63;
+			break;
+		(int)Rest_Action::Watching_movies:
+			Rest += 50;
+			break;
+		(int)Rest_Action::Watch_TikTok:
+			Rest += 40;
+			break;
+		default:
+			break;
+	}
 	if (Rest > 100) Rest = 100;
 
 }

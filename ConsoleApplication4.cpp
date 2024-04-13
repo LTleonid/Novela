@@ -1,15 +1,14 @@
 ﻿#include <iostream>
 #include <String>
 #include <windows.h>  
-
-#include "Voidless_Function.h"
-
+int counter = 0;
+using namespace std;
 
 int main() {
-	for (int i = 0; i < 30; i++) {
-		for (int j = 0; jы < 30; j++) {
-			cout << sprite1[i][j];
-		}
+	string choices[]{ "Я педоГОГ","asdasd" };
+	for (string item : choices) {
+		couneter++;
+		cout << counter << ": " << item;
 	}
 	return 0;
 }
