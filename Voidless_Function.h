@@ -65,23 +65,10 @@ void Setup() {
 void Event_Random() {}
 
 
-void Screen_Choice(string choices[], string Name_NPC = none, string Question) {
-	int counter = 0;
-	cout << Name_NPC << ": " << Question;
-	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*";
-	cout << endl;
-	cout << "Ваш Выбор: \n"
-		for (string item : choices) {
-			couneter++;
-			cout << counter << ": " << item;
-		}
-	}
-	cout << endl;
-	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*";
-}
+
 
 void Screen_Dialog(string Name_NPC, string dialog, ) {
-
+	cout << <<
 } 
 
 
