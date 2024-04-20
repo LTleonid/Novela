@@ -3,7 +3,7 @@
 #include <iostream>
 #include <String>
 #include <windows.h>  
-
+#include <vector>
 
 enum ConsoleColor
 {
@@ -42,7 +42,7 @@ int Saturation = 0;
 int Rest = 0;
 int Sleep_ = 0;
 int Money = 0;
-string Name;
+string Name = "";
 
 
 string NameNPC_Random[]{ "Алекс", "" };
@@ -61,14 +61,32 @@ void Setup() {
 	getline(cin, Name);
 }
 
-
 void Event_Random() {}
 
+int Screen_Choice(vector<string>& choices){
+	int counter = 0;
+	int user;
+	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
+	for (string& item : choices) {
+		counter++;
+		cout << counter << ": " << item << "\n";
+	}
+	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
+	cout << endl;
+	cout << "Ваш Выбор: ";
+	cin >> user;
+	return user;
+}
 
 
-
-void Screen_Dialog(string Name_NPC, string dialog, ) {
-	cout << <<
+void Screen_Dialog( string Name_NPC, string dialog, int color_message = 1,int color_name = 1, int background = 0) {
+	
+	SetColor(color_name,background);
+	cout << Name_NPC;
+	cout << " : ";
+	SetColor(color_name, background);
+	cout << dialog;
+	cout << endl;
 } 
 
 
@@ -111,57 +129,55 @@ void Sleep_Event_Radnom(int Rest_Factor) {
 	}
 }
 
-void Eat_Event(int Food_Type) {
-	switch (Food_Type)
+void Eat_Event(Food Food) {
+	switch (Food)
 	{
-		(int)Food::Bread:
+		case Food::Bread:
 			Saturation += 20;
 			break;
-		(int)Food::Steak:
+		case Food::Steak:
 			Saturation += 50;
 			break;
-		(int)Food::Chicken:
+		case Food::Chicken:
 			Saturation += 60;
 			break;
-		(int)Food::Fries:
+		case Food::Fries:
 			Saturation += 35;
 			break;
-		(int)Food::Ice_Cream:
+		case Food::Ice_Cream:
 			Saturation += 15;
 			break;
-		(int)Food::Potato:
+		case Food::Potato:
 			Saturation += 16;
 			break;
 	default:
-		cout << "Ошибка в еде!" << Food_Type;
+		cout << "Ошибка в еде!";
 	}
 	if (Saturation > 100) Saturation = 100;
 }
 
-void Rest_Event(int Rest_Type) {
-	switch (Rest_Type)
-	{
-		(int)Rest_Action::Lying_on_the_couch:
-			Rest += 10;
-			break;
-		(int)Rest_Action::Go_to_the_park:
-			Rest += 20;
-			break;
-		(int)Rest_Action::Walk_along_the_embankment:
-			Rest += 35;
-			break;
-		(int)Rest_Action::Walking_with_friends:
-			Rest += 63;
-			break;
-		(int)Rest_Action::Watching_movies:
-			Rest += 50;
-			break;
-		(int)Rest_Action::Watch_TikTok:
-			Rest += 40;
-			break;
-		default:
-			break;
+void Rest_Event(Rest_Action action) {
+	switch (action) {
+	case Rest_Action::Lying_on_the_couch:
+		Rest += 10;
+		break;
+	case Rest_Action::Go_to_the_park:
+		Rest += 20;
+		break;
+	case Rest_Action::Walk_along_the_embankment:
+		Rest += 35;
+		break;
+	case Rest_Action::Walking_with_friends:
+		Rest += 63;
+		break;
+	case Rest_Action::Watching_movies:
+		Rest += 50;
+		break;
+	case Rest_Action::Watch_TikTok:
+		Rest += 40;
+		break;
+	default:
+		break;
 	}
 	if (Rest > 100) Rest = 100;
-
 }

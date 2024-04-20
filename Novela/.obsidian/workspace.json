@@ -11,8 +11,12 @@
             "id": "2d0e285c109e95d0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "В плену/Untitled.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "В плену/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,6 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "В плену/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +138,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "В плену/Untitled.md"
+              }
             }
           }
         ]
@@ -154,8 +162,8 @@
   },
   "active": "03221ec5db01f82a",
   "lastOpenFiles": [
+    "В плену/Untitled.md",
     "СамоУбийство",
-    "Untitled.md",
     "Untitled 7",
     "В тюрьму",
     "Побег",

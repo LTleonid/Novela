@@ -1,27 +1,23 @@
 ﻿#include <iostream>
 #include <String>
 #include <windows.h>
-#include <vector>
+#include "Voidless_Function.h"
 using namespace std;
 
-int Screen_Choice(vector<string>& choices, string Name_NPC = "", string Question = "") {
-    int counter = 0;
-    int user;
-    cout << Name_NPC << ": " << Question << endl;
-    cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
-    for (string& item : choices) {
-        counter++;
-        cout << counter << ": " << item << "\n";
-    }
-    cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
-    cout << endl;
-    cout << "Ваш Выбор: ";
-    cin >> user;
-    return user;
+void start() {
+    
+    Screen_Dialog("Генерал", "Здравствуй, "); cout << Name << "Вы Уверены что хотите работать у нас?";
+    Screen_Choice
+}
+void Здравоумие_событие_отрицательное(){
+ Screen_Dialog("Мысли", "Я очень переживаю, Боже, у меня начали трястись руки! Неужели у меня настолько сильное внутреннее напряжение, что начинается паническая атака? Ладно, мне надо сейчас успокоится.")
+ Screen_Dialog("Мысли", "Я сам на себя не похож, я не могу контролировать себя! ")
 }
 
+
 int main() {
-    vector<string> arr = { "asd", "sdd", "sdd" };
-    cout << Screen_Choice(arr, "string Name_NPC = none", "ТЫ чмо?");
+    setlocale(LC_ALL, "Russian");
+    srand(time(NULL));
+    Setup()
     return 0;
 }
