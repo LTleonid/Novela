@@ -58,6 +58,7 @@ void Setup() {
 	Rest = 100;
 	Sleep_ = 100;
 	Money = 1000;
+	cout << "Ваше Имя: ";
 	getline(cin, Name);
 }
 
@@ -66,6 +67,7 @@ void Event_Random() {}
 int Screen_Choice(vector<string>& choices){
 	int counter = 0;
 	int user;
+	cout << endl;
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
 	for (string& item : choices) {
 		counter++;
@@ -73,21 +75,28 @@ int Screen_Choice(vector<string>& choices){
 	}
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
 	cout << endl;
+
 	cout << "Ваш Выбор: ";
+
 	cin >> user;
+	cout << endl;
+	
 	return user;
+	
 }
 
 
-void Screen_Dialog( string Name_NPC, string dialog, int color_message = 1,int color_name = 1, int background = 0) {
-	
-	SetColor(color_name,background);
-	cout << Name_NPC;
-	cout << " : ";
-	SetColor(color_name, background);
-	cout << dialog;
+void inline Screen_Dialog(string Name_NPC, string dialog) {
 	cout << endl;
-} 
+
+	cout << Name_NPC << " : ";
+	
+	cout << dialog;
+
+	cout << endl;
+	cin.get();
+}
+
 
 
 void Sleep_Event_Global(int Rest_Factor) {
