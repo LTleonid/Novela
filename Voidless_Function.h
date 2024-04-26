@@ -38,6 +38,7 @@ void SetColor(int text, int background)
 #define screen_height 30
 using namespace std;
 
+int rest_factor_multiplyier = 0;
 int Saturation = 0;
 int Rest = 0;
 int Sleep_ = 0;
@@ -58,18 +59,17 @@ void Setup() {
 	Rest = 100;
 	Sleep_ = 100;
 	Money = 1000;
-	getline(cin, Name);
+	cout << "Ваше имя: ";getline(cin, Name);
+	rest_factor_multiplyier = 100;
 }
 
 void Event_Random() {}
 
-int Screen_Choice(vector<string>& choices){
-	int counter = 0;
+int Screen_Choice(vector<string> choices) {
 	int user;
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
-	for (string& item : choices) {
-		counter++;
-		cout << counter << ": " << item << "\n";
+	for (int i = 0; i < choices.size(); i++) {
+		cout << i + 1 << ": " << choices[i] << "\n";
 	}
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
 	cout << endl;
@@ -79,18 +79,20 @@ int Screen_Choice(vector<string>& choices){
 }
 
 
-void Screen_Dialog( string Name_NPC, string dialog, int color_message = 1,int color_name = 1, int background = 0) {
+void Screen_Dialog( string Name_NPC, string dialog, int color_message = 15,int color_name = 15, int background = 0) {
 	
 	SetColor(color_name,background);
 	cout << Name_NPC;
 	cout << " : ";
 	SetColor(color_name, background);
 	cout << dialog;
-	cout << endl;
+	cin.get();
 } 
 
 
 void Sleep_Event_Global(int Rest_Factor) {
+
+	cout << "Вы уснули.";
 	Sleep_ = 100;
 	if (Rest_Factor > 20) {
 		Rest = 100;
@@ -130,6 +132,7 @@ void Sleep_Event_Radnom(int Rest_Factor) {
 }
 
 void Eat_Event(Food Food) {
+	
 	switch (Food)
 	{
 		case Food::Bread:
@@ -180,4 +183,9 @@ void Rest_Event(Rest_Action action) {
 		break;
 	}
 	if (Rest > 100) Rest = 100;
+}
+void Money_Event(int Money_) {
+	cout << "Вы получили: " << Money_ << " У.Е.";
+	Money += Money_;
+	cout << "Ваши Сбережения: " << Money;
 }
