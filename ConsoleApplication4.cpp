@@ -1,12 +1,10 @@
 ﻿#include <iostream>
-<<<<<<< HEAD
 #include <String>
 #include <windows.h>
-=======
 #include <string> 
-
->>>>>>> e945bf0 (	modified:   ConsoleApplication4.cpp)
+#include <vector>
 #include "Voidless_Function.h"
+bool flag = true;
 using namespace std;
 
 void start() {
@@ -86,13 +84,190 @@ void start() {
     case 1:
         Rest_Event(Rest_Action::Watch_TikTok);
         break;
-    case 2:
-	Rest_Event(Rest_Action::Walking_with_Friends)
+    case 2: 
+        Rest_Event(Rest_Action::Walk_along_the_embankment);
+        break;
+    case 3:
+        Rest_Event(Rest_Action::Walking_with_friends);
+        break;
+    case 4:
+        Rest_Event(Rest_Action::Watch_TV);
+        break;
+    case 5:
+        Screen_Dialog("Действия", "Вы подошли к холодильнику и открыли его, Он пустой.");
+        Screen_Dialog(Name, "Точно, я забыл купить еду.");
+        
+        while (flag) {
+            choice = Screen_Choice(vector <string> {"Пойти в магазин.", "Остаться дома"});
+            switch (choice)
+            {
+            case 1:
+                flag = false;
+                Screen_Dialog("Действия", "Вы не спеша одели куртку и вышли в магазин");
+                Screen_Dialog("Действия", "Зайдя в магазин вы посмотрели на полку с товарами");
+                cout << "У вас есть: "<< Money << " $";
+                choice = Screen_Choice(vector <string> {"Хлеб - 20$","Картошка - 35$","Курица - 40$"});
+                switch (choice)
+                {
+                case 1:
+                    Money -= 20;
+                    cout << "Вы взяли Хлеб";
+                case 2:
+                    Money -= 35;
+                    cout << "Вы взяли Картошку";
+                case 3:
+                    Money -= 40;
+                    cout << "Вы взяли Курицу";
+                default:
+                    break;
+
+                }
+            case 2:
+                Screen_Dialog(Name, "Я как бы хочу кушать.");
+                break;
+            default:
+                break;
+            }
+        }
     default:
         break;
     }
-}
 
+
+
+    Screen_Dialog(Name, "Я хочу поесть.");
+
+    int choice = Screen_Choice(vector<string>{"Хлеб - 20$", "Картошка - 35$", "Курица - 40$"});
+    switch (choice) {
+    case 1:
+        Screen_Dialog(Name, "Я возьму хлеб.");
+        break;
+    case 2:
+        Screen_Dialog(Name, "Я возьму картошку.");
+        break;
+    case 3:
+        Screen_Dialog(Name, "Я возьму курицу.");
+        break;
+    default:
+        break;
+    }
+
+    Screen_Dialog("Генерал Иванов", Name + ", появилась возможность. Польша уязвима. Нам нужно, чтобы вы возглавили атаку и завоевали её.");
+    choice = Screen_Choice(vector<string>{"Принять миссию.", "Отказаться."});
+    switch (choice) {
+    case 1:
+        Screen_Dialog("Генерал Иванов", "Удачи, " + Name + ". Польша ждет вашего завоевания.");
+        break;
+    case 2:
+        Screen_Dialog("Генерал Иванов", "Понятно, " + Name + ". Мы найдем другие пути.");
+        break;
+    default:
+        break;
+
+
+
+
+        Screen_Dialog("Генерал Иванов", Name + ", поступили отчеты о слабых оборонительных силах Польши. Пришло время ударить.");
+        Screen_Dialog(Name, "Понял, генерал. Я мобилизую наши войска немедленно.");
+        Screen_Dialog("Генерал Иванов", "Помните, это ключевая миссия для нашей страны. Победа обязательна.");
+        Screen_Dialog(Name, "Я вас не подведу, генерал. Польша падет перед нашей мощью.");
+        Screen_Dialog("Генерал Иванов", "У меня полное доверие к вам, " + Name + ". Сделайте нас гордыми.");
+
+
+        Screen_Dialog(Name, "Теперь, когда Польша под нашим контролем, что мне делать дальше?");
+
+        int choice = Screen_Choice(vector<string>{"Укрепить власть в Польше.", "Подготовиться к следующему завоеванию.", "Сосредоточиться на внутренних делах.", "Отдохнуть и расслабиться."});
+        switch (choice) {
+        case 1:
+            Screen_Dialog(Name, "Я начну с назначения местных лидеров и установления порядка в Польше.");
+            break;
+        case 2:
+            Screen_Dialog(Name, "Я должен быть готов к новым вызовам.");
+            break;
+        case 3:
+            Screen_Dialog(Name, "Нам нужно сделать Польшу стабильной внутри.");
+            break;
+        case 4:
+            Screen_Dialog(Name, "Время немного отдохнуть.");
+            break;
+        default:
+            break;
+        }
+
+
+
+        Screen_Dialog(Name, "Я начну с назначения местных лидеров и установления порядка в Польше.");
+
+        int choice = Screen_Choice(vector<string>{"Бороться с сопротивлением.", "Укрепить союзы.", "Улучшить инфраструктуру."});
+        switch (choice) {
+        case 1:
+            Screen_Dialog(Name, "Нам нужно подавить сопротивление.");
+            break;
+        case 2:
+            Screen_Dialog(Name, "Союзы могут помочь укрепить нашу позицию.");
+            break;
+        case 3:
+            Screen_Dialog(Name, "Улучшение инфраструктуры повысит нашу эффективность.");
+            break;
+        default:
+            break;
+        }
+
+        int choice = Screen_Choice(vector<string>{"Принять союз.", "Отклонить и потребовать дани.", "Угрожать войной."});
+        switch (choice) {
+        case 1:
+            Screen_Dialog(Name, "Отлично. Вместе мы обеспечим мир и процветание в наших регионах.");
+            break;
+        case 2:
+            Screen_Dialog(Name, "Мы не будем довольствоваться меньшим.");
+            break;
+        case 3:
+            Screen_Dialog(Name, "Мы готовы защищать наши интересы.");
+            break;
+        default:
+            break;
+        }
+
+
+
+        Screen_Dialog(Name, "Теперь, когда Польша стабильна и у нас есть союзы, я должен сосредоточиться на сохранении наших достижений и планировании будущего.");
+
+        int choice = Screen_Choice(vector<string>{"Расширить наше влияние.", "Инвестировать в технологии и образование.", "Решить социальные проблемы."});
+        switch (choice) {
+        case 1:
+            Screen_Dialog(Name, "Нам нужно расширить наше влияние на другие регионы.");
+            break;
+        case 2:
+            Screen_Dialog(Name, "Технологии и образование - наш приоритет.");
+            break;
+        case 3:
+            Screen_Dialog(Name, "Мы должны решить проблемы нашего народа.");
+            break;
+        default:
+            break;
+        }
+
+
+
+        Screen_Dialog(Name, "Когда я оглядываюсь на наше завоевание Польши и последующие усилия по её управлению и развитию, я понимаю важность лидерства и видения в формировании судьбы нации.");
+
+        int choice = Screen_Choice(vector<string>{"Искать дальнейшие завоевания.", "Сосредоточиться на внутреннем росте.", "Уйти на покой и наслаждаться плодами труда."});
+        switch (choice) {
+        case 1:
+            Screen_Dialog(Name, "Мы должны продолжать нашу миссию.");
+            break;
+        case 2:
+            Screen_Dialog(Name, "Нам нужно сделать нашу страну сильнее изнутри.");
+            break;
+        case 3:
+            Screen_Dialog(Name, "Пришло время отдохнуть.");
+            break;
+        default:
+            break;
+        }
+
+        Screen_Dialog("Генерал Иванов", Name + ", ты достиг больших успехов для нашей нации. Ты заслужил свой отдых.");
+    }
 
 void Здравоумие_событие_отрицательное() {
     Screen_Dialog("Мысли", "Как же заебал генерал, то ему надо сё ему надо");
