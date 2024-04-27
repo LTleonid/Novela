@@ -1,6 +1,11 @@
 ﻿#include <iostream>
+<<<<<<< HEAD
 #include <String>
 #include <windows.h>
+=======
+#include <string> 
+
+>>>>>>> e945bf0 (	modified:   ConsoleApplication4.cpp)
 #include "Voidless_Function.h"
 using namespace std;
 
@@ -82,6 +87,7 @@ void start() {
         Rest_Event(Rest_Action::Watch_TikTok);
         break;
     case 2:
+	Rest_Event(Rest_Action::Walking_with_Friends)
     default:
         break;
     }
@@ -145,8 +151,10 @@ void Здравоумие_событие_отрицательное() {
 
 
         break;
+
     }
 }
+
 
 int main() {
 
@@ -157,3 +165,5 @@ int main() {
     start();
     return 0;
 }
+
+
