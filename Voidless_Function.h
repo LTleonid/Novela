@@ -59,13 +59,14 @@ void Setup() {
 	Rest = 100;
 	Sleep_ = 100;
 	Money = 1000;
-	cout << "Ваше имя: ";getline(cin, Name);
+	cout << "Ваше имя: ";
+	cin >> Name;
 	rest_factor_multiplyier = 100;
 }
 
 void Event_Random() {}
 
-int Screen_Choice(vector<string> choices) {
+int inline Screen_Choice(vector<string> choices) {
 	int user;
 	bool flag = true;
 	int counter = 1;
@@ -86,8 +87,12 @@ int Screen_Choice(vector<string> choices) {
 	return user;
 }
 
-
-void Screen_Dialog( string Name_NPC, string dialog, int color_message = 15,int color_name = 15, int background = 0) {
+void Screen_Text(string Text, int color_text = 15, int background = 0) {
+	SetColor(color_text, background);
+	cout << endl;
+	cout << Text;
+}
+void inline Screen_Dialog( string Name_NPC, string dialog, int color_message = 15,int color_name = 15, int background = 0) {
 	
 	SetColor(color_name,background);
 	cout << Name_NPC;
