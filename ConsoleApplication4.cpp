@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <String>
 #include <windows.h>
 #include <vector>
@@ -390,5 +390,4 @@ int main() {
     start();
     return 0;
 }
-
 
