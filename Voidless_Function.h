@@ -52,34 +52,47 @@ string NameNPC_Random[]{ "Алекс", "" };
 enum class Food { Steak = 1, Bread, Chicken, Potato, Fries, Ice_Cream };
 enum class Statistic { Saturation, Rest, Sleep, Money };
 enum class Player_Action { Choice_1 = 1, Choice_2, Choice_3, Choice_4 };
-enum class Rest_Action { Lying_on_the_couch = 1, Go_to_the_park, Walk_along_the_embankment, Walking_with_friends, Watching_movies, Watch_TikTok };
+enum class Rest_Action { Lying_on_the_couch = 1, Go_to_the_park, Walk_along_the_embankment, Walking_with_friends, Watching_movies, Watch_TikTok, Watch_TV };
 
 void Setup() {
 	Saturation = 100;
 	Rest = 100;
 	Sleep_ = 100;
 	Money = 1000;
-	cout << "Ваше имя: ";getline(cin, Name);
+	cout << "Ваше имя: ";
+	cin >> Name;
 	rest_factor_multiplyier = 100;
 }
 
 void Event_Random() {}
 
-int Screen_Choice(vector<string> choices) {
+int inline Screen_Choice(vector<string> choices) {
 	int user;
+	bool flag = true;
+	int counter = 1;
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
 	for (int i = 0; i < choices.size(); i++) {
 		cout << i + 1 << ": " << choices[i] << "\n";
+		counter++;
 	}
 	cout << "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*" << endl;
 	cout << endl;
-	cout << "Ваш Выбор: ";
-	cin >> user;
+	while (flag) {
+		cout << "Ваш Выбор: ";
+		cin >> user;
+		if ((user > 0) && (user < counter)) {
+			break;
+		}
+	}
 	return user;
 }
 
-
-void Screen_Dialog( string Name_NPC, string dialog, int color_message = 15,int color_name = 15, int background = 0) {
+void Screen_Text(string Text, int color_text = 15, int background = 0) {
+	SetColor(color_text, background);
+	cout << endl;
+	cout << Text;
+}
+void inline Screen_Dialog( string Name_NPC, string dialog, int color_message = 15,int color_name = 15, int background = 0) {
 	
 	SetColor(color_name,background);
 	cout << Name_NPC;
@@ -179,13 +192,16 @@ void Rest_Event(Rest_Action action) {
 	case Rest_Action::Watch_TikTok:
 		Rest += 40;
 		break;
+	case Rest_Action::Watch_TV:
+		Rest += 40;
+		break;
 	default:
 		break;
 	}
 	if (Rest > 100) Rest = 100;
 }
 void Money_Event(int Money_) {
-	cout << "Вы получили: " << Money_ << " У.Е.";
+	cout << "Вы получили: " << Money_ << " $";
 	Money += Money_;
 	cout << "Ваши Сбережения: " << Money;
 }
